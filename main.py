@@ -29,7 +29,6 @@ def save_data(date, title, content):
     df.to_csv(DB_FILE, index=False, encoding='utf-8-sig')
 
 # --- UI 레이아웃 ---
-st.title("📂 나만의 데이터 통합 앱")
 st.header("✍️ 오늘의 일기")
 
 # 입력 섹션
