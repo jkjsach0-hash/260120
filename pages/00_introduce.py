@@ -17,7 +17,7 @@ col1, col2 = st.columns([1, 2])
 with col1:
     # 본인의 사진 파일 경로를 적어주세요 (예: 'profile.jpg')
     # 이미지 파일이 없다면 샘플 이미지를 사용합니다.
-    st.image("https://via.placeholder.com/200", caption="나의 프로필 사진", use_container_width=True)
+    st.image("https://i.pinimg.com/originals/8c/e6/2a/8ce62a466e9b7798bdbbf88439545a9d.gif", caption="나의 프로필 사진", use_container_width=True)
 
 with col2:
     st.write("""
