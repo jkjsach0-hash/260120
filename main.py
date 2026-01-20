@@ -75,7 +75,7 @@ mbti_data = {
 }
 
 # 4. 메인 화면 구성
-st.markdown('<p class="title-text">✨ 미래의 꿈을 찾는 MBTI 탐험 ✨</p>', unsafe_content: True)
+st.markdown('<p class="title-text">✨ 미래의 꿈을 찾는 MBTI 탐험 ✨</p>', unsafe_allow_html: True)
 st.write("<h4 style='text-align: center; color: white;'>나의 성격 유형을 선택하고 가장 잘 어울리는 직업을 알아보세요! 🚀</h4>", unsafe_content: True)
 
 st.divider()
