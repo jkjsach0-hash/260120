@@ -79,24 +79,23 @@ st.markdown('<p class="title-text">✨ 미래의 꿈을 찾는 MBTI 탐험 ✨</
 st.markdown("<h4 style='text-align: center; color: white;'>나의 성격 유형을 선택하고 가장 잘 어울리는 직업을 알아보세요! 🚀</h4>", unsafe_allow_html=True)
 
 st.divider()
+st.divider()
 
-# 레이아웃 나누기
+# 1. 레이아웃 나누기 (이 줄의 맨 앞에는 공백이 없어야 합니다)
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
-    st.write("### 🔍 정보 입력")
-    name = st.text_input("당신의 멋진 이름은?", placeholder="이름을 입력해주세요")
+    st.markdown("### 🔍 정보 입력")
+    name = st.text_input("당신의 멋진 이름은?", placeholder="예: 홍길동")
     mbti = st.selectbox(
-        "당신의 MBTI 유형은 무엇인가요?",
+        "당신의 MBTI 유형은?",
         options=list(mbti_data.keys()),
         index=0
     )
     
-    st.write("---")
-    analyze_btn = st.button("🌟 결과 확인하기")
+    st.write("")
+    analyze_btn = st.button("🌟 직업 추천받기", use_container_width=True)
 
-with col2:
-    if analyze_btn:
 with col2:
     if analyze_btn:
         with st.spinner('당신의 성향을 분석 중입니다...'):
@@ -105,22 +104,22 @@ with col2:
         
         data = mbti_data[mbti]
         
-        # 1. 결과 카드 출력
+        # 결과 카드 출력
         st.markdown(f"""
         <div class="job-card">
             <h2 style="margin-top:0;">{name if name else "탐험가"}님의 결과는? {data['emoji']}</h2>
             <h3 style="color: #764ba2;">추천 직업: {data['job']}</h3>
-            <hr style="border: 0; border-top: 1px solid #eee;">
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
             <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">{data['desc']}</p>
         </div>
         """, unsafe_allow_html=True)
         
-        # 2. 추가 조언 (이 부분의 들여쓰기를 위 st.markdown과 똑같이 맞추세요!)
+        # 추가 조언
         st.info(f"💡 {name if name else '탐험가'}님, {mbti} 유형은 특히 **'{data['job'].split(',')[0]}'** 분야에서 빛을 발할 가능성이 높아요!")
         
     else:
-        # 버튼을 누르기 전 상태
+        # 버튼을 누르기 전 초기 상태
         st.info("왼쪽에서 정보를 입력하고 버튼을 눌러보세요! ✨")
 
-# 5. 하단 푸터 (맨 왼쪽 벽에 붙여서 작성)
+# 5. 하단 푸터 (이 줄도 맨 앞 벽에 딱 붙어야 합니다)
 st.markdown("<br><br><p style='text-align: center; color: #ddd; font-size: 0.8rem;'>© 2026 MBTI Career Discovery | Dream Big! 🚀</p>", unsafe_allow_html=True)
