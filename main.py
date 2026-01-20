@@ -97,7 +97,7 @@ with col1:
 
 with col2:
     if analyze_btn:
- with col2:
+with col2:
     if analyze_btn:
         with st.spinner('당신의 성향을 분석 중입니다...'):
             time.sleep(1)
