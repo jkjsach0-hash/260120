@@ -97,15 +97,15 @@ with col1:
 
 with col2:
     if analyze_btn:
-        # 로딩 애니메이션
-        with st.spinner('당신의 미래를 분석하고 있습니다...'):
-            time.sleep(1.5)
-            st.balloons() # 축하 풍선 효과!
+ with col2:
+    if analyze_btn:
+        with st.spinner('당신의 성향을 분석 중입니다...'):
+            time.sleep(1)
+            st.balloons()
         
-        # 결과 표시
         data = mbti_data[mbti]
         
-      # --- 이 부분이 108번 줄부터 시작되는 결과 출력 섹션입니다 ---
+        # 1. 결과 카드 출력
         st.markdown(f"""
         <div class="job-card">
             <h2 style="margin-top:0;">{name if name else "탐험가"}님의 결과는? {data['emoji']}</h2>
@@ -113,17 +113,14 @@ with col2:
             <hr style="border: 0; border-top: 1px solid #eee;">
             <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">{data['desc']}</p>
         </div>
-        """, unsafe_allow_html=True) # 여기서 따옴표 세 개와 괄호를 꼭 확인하세요!
+        """, unsafe_allow_html=True)
+        
+        # 2. 추가 조언 (이 부분의 들여쓰기를 위 st.markdown과 똑같이 맞추세요!)
+        st.info(f"💡 {name if name else '탐험가'}님, {mbti} 유형은 특히 **'{data['job'].split(',')[0]}'** 분야에서 빛을 발할 가능성이 높아요!")
+        
     else:
+        # 버튼을 누르기 전 상태
         st.info("왼쪽에서 정보를 입력하고 버튼을 눌러보세요! ✨")
 
-# 5. 하단 푸터 (파일의 마지막 부분)
+# 5. 하단 푸터 (맨 왼쪽 벽에 붙여서 작성)
 st.markdown("<br><br><p style='text-align: center; color: #ddd; font-size: 0.8rem;'>© 2026 MBTI Career Discovery | Dream Big! 🚀</p>", unsafe_allow_html=True)
-        
-        # 추가 조언
-        st.info(f"💡 {name}님, {mbti} 유형은 특히 **'{data['job'].split(',')[0]}'** 분야에서 빛을 발할 가능성이 높아요!")
-    else:
-        st.image("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&q=80", caption="당신의 미래는 밝습니다!")
-
-# 5. 하단 푸터
-st.markdown("<br><br><p style='text-align: center; color: #eee;'>© 2024 진로 교육 프로젝트 | 꿈을 향한 첫걸음 🏃‍♂️</p>", unsafe_content: True)
