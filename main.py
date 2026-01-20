@@ -52,7 +52,7 @@ st.markdown("""
         margin: 30px 0;
     }
     </style>
-    """, unsafe_content: True)
+""", unsafe_allow_html=True)
 
 # 3. 데이터 정의 (16가지 MBTI별 직업 추천)
 mbti_data = {
