@@ -112,7 +112,7 @@ with col2:
             <h3 style="color: #764ba2;">추천 직업: {data['job']}</h3>
             <p style="font-size: 1.2rem; line-height: 1.6;">{data['desc']}</p>
         </div>
-        """, unsafe_content: True)
+       st.markdown("<br><br><p style='text-align: center; color: #ddd; font-size: 0.8rem;'>© 2024 MBTI Career Discovery | Dream Big! 🚀</p>", unsafe_allow_html=True)
         
         # 추가 조언
         st.info(f"💡 {name}님, {mbti} 유형은 특히 **'{data['job'].split(',')[0]}'** 분야에서 빛을 발할 가능성이 높아요!")
