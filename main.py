@@ -105,14 +105,20 @@ with col2:
         # 결과 표시
         data = mbti_data[mbti]
         
+      # --- 이 부분이 108번 줄부터 시작되는 결과 출력 섹션입니다 ---
         st.markdown(f"""
         <div class="job-card">
-            <h2>{name}님은 <b>{mbti}</b> 유형이군요! {data['emoji']}</h2>
-            <hr style="border-left: 0; border-top: 1px solid #ccc;">
+            <h2 style="margin-top:0;">{name if name else "탐험가"}님의 결과는? {data['emoji']}</h2>
             <h3 style="color: #764ba2;">추천 직업: {data['job']}</h3>
-            <p style="font-size: 1.2rem; line-height: 1.6;">{data['desc']}</p>
+            <hr style="border: 0; border-top: 1px solid #eee;">
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">{data['desc']}</p>
         </div>
-       st.markdown("<br><br><p style='text-align: center; color: #ddd; font-size: 0.8rem;'>© 2024 MBTI Career Discovery | Dream Big! 🚀</p>", unsafe_allow_html=True)
+        """, unsafe_allow_html=True) # 여기서 따옴표 세 개와 괄호를 꼭 확인하세요!
+    else:
+        st.info("왼쪽에서 정보를 입력하고 버튼을 눌러보세요! ✨")
+
+# 5. 하단 푸터 (파일의 마지막 부분)
+st.markdown("<br><br><p style='text-align: center; color: #ddd; font-size: 0.8rem;'>© 2026 MBTI Career Discovery | Dream Big! 🚀</p>", unsafe_allow_html=True)
         
         # 추가 조언
         st.info(f"💡 {name}님, {mbti} 유형은 특히 **'{data['job'].split(',')[0]}'** 분야에서 빛을 발할 가능성이 높아요!")
